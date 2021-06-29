@@ -5,13 +5,20 @@ import {
   View,
   Text
 } from 'react-native';
-
-import fonts from '../styles/fonts';
+import { useNavigation } from '@react-navigation/core';
 
 import { Button } from '../components/Button';
+
 import GardeningSvg from '../assets/gardening.svg';
+import fonts from '../styles/fonts';
 
 export function Welcome() {
+  const navigation = useNavigation();
+
+  function handleStart() {
+    navigation.navigate('Login');        
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}> 
@@ -30,7 +37,10 @@ export function Welcome() {
           o mundo!
         </Text>
 
-        <Button title='Iniciar'/>
+        <Button 
+          title='Iniciar'
+          onPress={handleStart}
+        />
       </View>
     </SafeAreaView>
   )
