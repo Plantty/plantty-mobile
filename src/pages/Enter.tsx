@@ -5,40 +5,28 @@ import {
   View,
   Text
 } from 'react-native';
-import { useNavigation } from '@react-navigation/core';
 
 import { Button } from '../components/Button';
 
-import GardeningSvg from '../assets/gardening.svg';
+import DoneSvg from '../assets/done.svg';
 import fonts from '../styles/fonts';
 
-export function Welcome() {
-  const navigation = useNavigation();
-
-  function handleStart() {
-    navigation.navigate('Enter');        
-  }
-
+export function Enter() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}> 
-        <GardeningSvg/>
+        <DoneSvg/>
         
-        <Text style={styles.title}>
-          Nós adoramos proteger {'\n'}
-          o nosso planeta
-        </Text>
+        <Text style={styles.title}> Estamos Preparados! </Text>
         
         <Text style={styles.text}>
-          Ajudamos você a fazer o seu jardim,
-          reunindo as informações da flora do
-          nosso planeta. Vamos pensar em 
-          pequenas coisas que mudam o mundo!
+          Você verá as informações das plantas de forma simples
+          e completa. Também pode deixar algum comentário na 
+          planta para ajudar outras pessoas que não à conheçam!
         </Text>
 
         <Button 
-          title='Iniciar'
-          onPress={handleStart}
+          title='Entrar'
         />
       </View>
     </SafeAreaView>
@@ -66,7 +54,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 20,
     textAlign: 'center',
-    paddingHorizontal: 75,
+    paddingHorizontal: 80,
     marginBottom: 100
   }
 })

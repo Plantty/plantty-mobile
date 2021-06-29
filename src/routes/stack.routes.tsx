@@ -2,7 +2,7 @@ import React from 'react';
 import  { createStackNavigator } from '@react-navigation/stack';
 
 import { Welcome } from '../pages/Welcome';
-import { Login } from '../pages/Login';
+import { Enter } from '../pages/Enter';
 
 import colors from '../styles/colors';
 
@@ -24,8 +24,8 @@ const AppRoutes: React.FC = () => (
       />
 
       <stackRoutes.Screen 
-        name='Login'
-        component={Login}
+        name='Enter'
+        component={Enter}
       />
 
     </stackRoutes.Navigator>
