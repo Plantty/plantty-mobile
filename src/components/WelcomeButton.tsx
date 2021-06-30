@@ -24,6 +24,11 @@ export function Button({ title, ...rest }: ButtonProps ){
       <Text style={styles.text}>
         { title }
       </Text>
+
+      <Feather 
+        name="chevron-right"
+        style={styles.arrow}
+      />    
     </TouchableOpacity>
   )
 }; 
@@ -42,5 +47,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: colors.white,
     fontFamily: fonts.heading
+  },
+  arrow: {
+    fontSize: 16,
+    color: colors.white,
+    position: 'absolute',
+    left: '85%'
   }
 });

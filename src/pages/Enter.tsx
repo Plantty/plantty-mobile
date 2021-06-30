@@ -3,13 +3,15 @@ import {
   SafeAreaView, 
   StyleSheet,
   View,
-  Text
+  Text,
+  TouchableOpacity
 } from 'react-native';
 
 import { Button } from '../components/Button';
 
 import DoneSvg from '../assets/done.svg';
 import fonts from '../styles/fonts';
+import colors from '../styles/colors';
 
 export function Enter() {
   return (
@@ -28,6 +30,15 @@ export function Enter() {
         <Button 
           title='Entrar'
         />
+
+        <TouchableOpacity 
+          style={styles.button}
+          activeOpacity={0.8}  
+        >
+          <Text style={styles.textButton}>
+            Entrar como visitante
+          </Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   )
@@ -56,5 +67,30 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingHorizontal: 80,
     marginBottom: 100
+  },
+  button: {
+    backgroundColor: colors.white,
+
+    width: 270,
+    height: 58,
+    borderRadius: 16,
+
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 10,
+
+    shadowColor: colors.black,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
+  },
+  textButton: {
+    fontSize: 16,
+    fontFamily: fonts.heading
   }
-})
+});

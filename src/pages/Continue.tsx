@@ -10,35 +10,34 @@ import { useNavigation } from '@react-navigation/core';
 import { Button } from '../components/WelcomeButton';
 import { PaginationDots } from '../components/PaginationDots';
 
-import GardeningSvg from '../assets/gardening.svg';
+import NatureSvg from '../assets/nature-screen.svg';
 import fonts from '../styles/fonts';
 
-export function Welcome() {
+export function Continue() {
   const navigation = useNavigation();
 
   function handleStart() {
-    navigation.navigate('Continue');        
+    navigation.navigate('Enter');        
   }
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}> 
-        <GardeningSvg/>
+        <NatureSvg/>
         
         <Text style={styles.title}>
-          Nós adoramos proteger {'\n'}
-          o nosso planeta
+          Informações de uma {'\n'}
+          forma simplificada  
         </Text>
         
         <Text style={styles.text}>
-          Ajudamos você a fazer o seu jardim,
-          reunindo as informações da flora do
-          nosso planeta. Vamos pensar em 
-          pequenas coisas que mudam o mundo!
+          Você verá as informações das plantas de forma simples
+          e completa. Também pode deixar algum comentário na 
+          planta para ajudar outras pessoas que não à conheçam!
         </Text>
 
         <PaginationDots
-          active={0}
+          active={1}
         />
 
         <Button 
