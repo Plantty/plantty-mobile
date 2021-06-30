@@ -12,6 +12,7 @@ import { PaginationDots } from '../components/PaginationDots';
 
 import GardeningSvg from '../assets/gardening.svg';
 import fonts from '../styles/fonts';
+import colors from '../styles/colors';
 
 export function Welcome() {
   const navigation = useNavigation();
@@ -42,7 +43,7 @@ export function Welcome() {
         />
 
         <Button 
-          title='Continuar'
+          title='Começar'
           onPress={handleStart}
         />
       </View>
@@ -69,6 +70,7 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: fonts.text,
     fontSize: 16,
+    color: colors.text,
     lineHeight: 20,
     textAlign: 'center',
     paddingHorizontal: 75,

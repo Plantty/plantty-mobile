@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import { Button } from '../components/Button';
+import { PaginationDots } from '../components/PaginationDots';
 
 import DoneSvg from '../assets/done.svg';
 import fonts from '../styles/fonts';
@@ -26,6 +27,12 @@ export function Enter() {
           e completa. Também pode deixar algum comentário na 
           planta para ajudar outras pessoas que não à conheçam!
         </Text>
+
+        <View style={styles.dots}>
+          <PaginationDots
+            active={2}
+          /> 
+        </View>
 
         <Button 
           title='Entrar'
@@ -57,16 +64,20 @@ const styles = StyleSheet.create({
     fontFamily: fonts.heading,
     fontSize: 24,
     textAlign: 'center',
-    marginTop: 12,
+    marginTop: 50,
     marginBottom: 10
   }, 
   text: {
     fontFamily: fonts.text,
     fontSize: 16,
+    color: colors.text,
     lineHeight: 20,
     textAlign: 'center',
     paddingHorizontal: 80,
-    marginBottom: 100
+    marginBottom: 10
+  },
+  dots: {
+    marginBottom: 50
   },
   button: {
     backgroundColor: colors.white,

@@ -12,7 +12,7 @@ export function PaginationDots({ active }: PaginationDotsProps) {
   return (
     <View style={styles.pagination}>
       <Dots
-        length={2}
+        length={3}
         active={active}
         activeColor={colors.green}
         activeDotWidth={15}
@@ -24,7 +24,6 @@ export function PaginationDots({ active }: PaginationDotsProps) {
 
 const styles = StyleSheet.create({
   pagination: {
-    height: 15,
-    marginBottom: 50
+    height: 15
   }
 });

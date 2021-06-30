@@ -12,6 +12,7 @@ import { PaginationDots } from '../components/PaginationDots';
 
 import NatureSvg from '../assets/nature-screen.svg';
 import fonts from '../styles/fonts';
+import colors from '../styles/colors';
 
 export function Continue() {
   const navigation = useNavigation();
@@ -68,6 +69,7 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: fonts.text,
     fontSize: 16,
+    color: colors.text,
     lineHeight: 20,
     textAlign: 'center',
     paddingHorizontal: 75,
