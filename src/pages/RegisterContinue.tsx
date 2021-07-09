@@ -14,11 +14,11 @@ import PlantSvg from '../assets/plant.svg';
 import fonts from '../styles/fonts';
 import colors from '../styles/colors';
 
-export function Login() {
+export function RegisterContinue() {
   const navigation = useNavigation();
 
-  function handleRegister() {
-    navigation.navigate('RegisterContinue');        
+  function handleLogin() {
+    navigation.navigate('Login');        
   }
 
   return (
@@ -48,22 +48,30 @@ export function Login() {
               maxLength={30}
               secureTextEntry
             />
+          </View>
 
-            <Text style={styles.forgotText}>Esqueceu a senha?</Text>
+          <View style={styles.formGroup}>
+            <Text style={styles.label}>Confirmar senha</Text>
+
+            <TextArea 
+              placeholder='Digite sua senha'
+              maxLength={30}
+              secureTextEntry
+            />
           </View>
         </View>
 
         <Button
-          title='Entrar'
+          title='Continuar'
         />
 
-        <View style={styles.registerContainer}>
-          <Text style={styles.accountText}>Não possui uma conta? </Text>
+        <View style={styles.loginContainer}>
+          <Text style={styles.accountText}>Tem uma conta? </Text>
           <Text 
-            style={styles.registerText}
-            onPress={handleRegister}
+            style={styles.loginText}
+            onPress={handleLogin}
           >
-            Registre-se
+            Login
           </Text>
         </View>
       </View>
@@ -91,7 +99,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: colors.text,
     lineHeight: 20,
-    marginBottom: 40
+    marginBottom: 25
   },
   label: {  
     fontFamily: fonts.heading,
@@ -101,23 +109,17 @@ const styles = StyleSheet.create({
   form: {
     width: '100%',
     alignItems: 'center',
-    marginBottom: 30
+    marginBottom: 35
   },
   formGroup: {
     width: '75%',
     marginTop: 13,
     alignItems: 'flex-start'
   },
-  forgotText: {
-    fontFamily: fonts.text,
-    fontSize: 16,
-    color: colors.purple,
-    marginTop: 13
-  },
-  registerContainer: {
+  loginContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: 60
+    marginTop: 40
   },
   accountText: {
     fontFamily: fonts.text,
@@ -125,7 +127,7 @@ const styles = StyleSheet.create({
     color: colors.text,
     lineHeight: 20
   },
-  registerText: {
+  loginText: {
     fontFamily: fonts.text,
     fontSize: 16,
     color: colors.purple,
