@@ -6,6 +6,7 @@ import {
   Text,
   TouchableOpacity
 } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
 
 import { Button } from '../components/Button';
 import { PaginationDots } from '../components/PaginationDots';
@@ -15,6 +16,12 @@ import fonts from '../styles/fonts';
 import colors from '../styles/colors';
 
 export function Enter() {
+  const navigation = useNavigation();
+
+  function handleStart() {
+    navigation.navigate('Login');        
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}> 
@@ -36,6 +43,7 @@ export function Enter() {
 
         <Button 
           title='Entrar'
+          onPress={handleStart}
         />
 
         <TouchableOpacity 
@@ -43,7 +51,7 @@ export function Enter() {
           activeOpacity={0.8}  
         >
           <Text style={styles.textButton}>
-            Entrar como visitante
+            Registrar
           </Text>
         </TouchableOpacity>
       </View>

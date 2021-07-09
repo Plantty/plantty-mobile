@@ -4,6 +4,7 @@ import  { createStackNavigator } from '@react-navigation/stack';
 import { Welcome } from '../pages/Welcome';
 import { Enter } from '../pages/Enter';
 import { Continue } from '../pages/Continue';
+import { Login } from '../pages/Login';
 
 import colors from '../styles/colors';
 
@@ -33,6 +34,12 @@ const AppRoutes: React.FC = () => (
         name='Enter'
         component={Enter}
       />
+
+      <stackRoutes.Screen 
+        name='Login'
+        component={Login}
+      />
+
 
     </stackRoutes.Navigator>
 )

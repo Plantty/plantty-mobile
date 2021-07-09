@@ -1,0 +1,122 @@
+import React from 'react';
+import { 
+  SafeAreaView, 
+  StyleSheet,
+  View,
+  Text
+} from 'react-native';
+
+import { Button } from '../components/Button';
+import { TextArea } from '../components/TextArea';
+
+import PlantSvg from '../assets/plant.svg';
+import fonts from '../styles/fonts';
+import colors from '../styles/colors';
+
+export function Login() {
+  return (
+    <SafeAreaView style={styles.container}>
+      <View style={styles.content}> 
+        <PlantSvg/>
+        
+        <Text style={styles.title}>Bem vindo ao Plantty!</Text>
+        
+        <Text style={styles.subtitle}>Viva ao planeta</Text>
+
+        <View style={styles.form}>
+          <View style={styles.formGroup}>
+            <Text style={styles.label}>E-mail</Text>
+
+            <TextArea 
+              placeholder='Digite seu e-mail'
+              maxLength={60}
+            />
+          </View>
+
+          <View style={styles.formGroup}>
+            <Text style={styles.label}>Senha</Text>
+
+            <TextArea 
+              placeholder='Digite sua senha'
+              maxLength={30}
+              secureTextEntry
+            />
+
+            <Text style={styles.forgotText}>Esqueceu a senha?</Text>
+          </View>
+        </View>
+
+        <Button
+          title='Entrar'
+        />
+
+        <View style={styles.registerContainer}>
+          <Text style={styles.accountText}>Não possui uma conta? </Text>
+          <Text style={styles.registerText}>Registre-se</Text>
+        </View>
+      </View>
+    </SafeAreaView>
+  )
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  content: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  title: {  
+    fontFamily: fonts.heading,
+    fontSize: 24,
+    marginTop: 30,
+    marginBottom: 10
+  }, 
+  subtitle: {
+    fontFamily: fonts.text,
+    fontSize: 16,
+    color: colors.text,
+    lineHeight: 20,
+    marginBottom: 40
+  },
+  label: {  
+    fontFamily: fonts.heading,
+    fontSize: 16,
+    marginBottom: 10
+  },
+  form: {
+    width: '100%',
+    alignItems: 'center',
+    marginBottom: 30
+  },
+  formGroup: {
+    width: '75%',
+    marginTop: 13,
+    alignItems: 'flex-start'
+  },
+  forgotText: {
+    fontFamily: fonts.text,
+    fontSize: 16,
+    color: colors.purple,
+    marginTop: 13
+  },
+  registerContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 60
+  },
+  accountText: {
+    fontFamily: fonts.text,
+    fontSize: 16,
+    color: colors.text,
+    lineHeight: 20
+  },
+  registerText: {
+    fontFamily: fonts.text,
+    fontSize: 16,
+    color: colors.purple,
+    lineHeight: 20
+  }
+});
