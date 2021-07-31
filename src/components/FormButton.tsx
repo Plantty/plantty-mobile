@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TouchableOpacityProps
 } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
@@ -30,7 +31,7 @@ export function Button({ title, ...rest }: ButtonProps ){
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.purple,
-    width: 270,
+    width: '80%',
     height: 58,
     borderRadius: 16,
     flexDirection: 'row',

@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 
-import { Button } from '../components/Button';
+import { Button } from '../components/FormButton';
 import { TextArea } from '../components/TextArea';
 
 import PlantSvg from '../assets/plant.svg';
@@ -19,6 +19,10 @@ export function RegisterContinue() {
 
   function handleLogin() {
     navigation.navigate('Login');        
+  }
+
+  function handleRegister() {
+    navigation.navigate('Register');        
   }
 
   return (
@@ -63,6 +67,7 @@ export function RegisterContinue() {
 
         <Button
           title='Continuar'
+          onPress={handleRegister}
         />
 
         <View style={styles.loginContainer}>
@@ -112,7 +117,7 @@ const styles = StyleSheet.create({
     marginBottom: 35
   },
   formGroup: {
-    width: '75%',
+    width: '80%',
     marginTop: 13,
     alignItems: 'flex-start'
   },

@@ -6,6 +6,7 @@ import { Enter } from '../pages/Enter';
 import { Continue } from '../pages/Continue';
 import { Login } from '../pages/Login';
 import { RegisterContinue } from '../pages/RegisterContinue';
+import { Register } from '../pages/Register';
 
 import colors from '../styles/colors';
 
@@ -44,6 +45,11 @@ const AppRoutes: React.FC = () => (
       <stackRoutes.Screen 
         name='RegisterContinue'
         component={RegisterContinue}
+      />
+
+      <stackRoutes.Screen 
+        name='Register'
+        component={Register}
       />
 
     </stackRoutes.Navigator>

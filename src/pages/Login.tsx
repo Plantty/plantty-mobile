@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 
-import { Button } from '../components/Button';
+import { Button } from '../components/FormButton';
 import { TextArea } from '../components/TextArea';
 
 import PlantSvg from '../assets/plant.svg';
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     marginBottom: 30
   },
   formGroup: {
-    width: '75%',
+    width: '80%',
     marginTop: 13,
     alignItems: 'flex-start'
   },
