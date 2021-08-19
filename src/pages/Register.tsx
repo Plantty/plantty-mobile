@@ -1,10 +1,14 @@
 import React from 'react';
 import { 
+  Platform,
+  KeyboardAvoidingView,
+  Keyboard,
   SafeAreaView, 
   StyleSheet,
   View,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  TouchableWithoutFeedback
 } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 
@@ -29,49 +33,56 @@ export function Register() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.content}> 
-        <View style={styles.navBar}>
-        <TouchableOpacity onPress={handleNavBack}>
-          <ArrowSvg/>
-        </TouchableOpacity>
+      <KeyboardAvoidingView
+        style={styles.container}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height' }
+      >
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.content}> 
+            <View style={styles.navBar}>
+            <TouchableOpacity onPress={handleNavBack}>
+              <ArrowSvg/>
+            </TouchableOpacity>
 
-          <Text style={styles.title}>Plantty</Text>
+              <Text style={styles.title}>Plantty</Text>
 
-          <PlantSvg/>
-        </View>
-    
-        <View style={styles.uploadImgContent}>
-          <UploadImageSvg/>
+              <PlantSvg/>
+            </View>
+        
+            <View style={styles.uploadImgContent}>
+              <UploadImageSvg/>
 
-          <Text style={styles.uploadImgText}>Sua foto</Text>
-        </View>
+              <Text style={styles.uploadImgText}>Sua foto</Text>
+            </View>
 
-        <View style={styles.form}>
-          <View style={styles.formGroup}>
-            <Text style={styles.label}>Nome</Text>
+            <View style={styles.form}>
+              <View style={styles.formGroup}>
+                <Text style={styles.label}>Nome</Text>
 
-            <TextArea 
-              placeholder='Digite seu nome'
-              maxLength={60}
+                <TextArea 
+                  placeholder='Digite seu nome'
+                  maxLength={60}
+                />
+              </View>
+
+              <View style={styles.formGroup}>
+                <Text style={styles.label}>Data de nascimento</Text>
+
+                <TextArea 
+                  placeholder='dd/mm/yyyy'
+                  maxLength={30}
+                  secureTextEntry
+                />
+              </View>
+            </View>
+
+            <Button
+              onPress={handleNavToLogin}
+              title='Registrar'
             />
           </View>
-
-          <View style={styles.formGroup}>
-            <Text style={styles.label}>Data de nascimento</Text>
-
-            <TextArea 
-              placeholder='dd/mm/yyyy'
-              maxLength={30}
-              secureTextEntry
-            />
-          </View>
-        </View>
-
-        <Button
-          onPress={handleNavToLogin}
-          title='Registrar'
-        />
-      </View>
+        </TouchableWithoutFeedback>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   )
 }
@@ -82,14 +93,14 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   navBar: {
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    alignItems: 'center',
-    marginTop: 50
+    alignItems: 'center'
   },
   title: {  
     fontFamily: fonts.heading,
@@ -97,12 +108,12 @@ const styles = StyleSheet.create({
   },
   uploadImgContent: {
     alignItems: 'center',
-    marginTop: 40
+    marginTop: 45
   },
   uploadImgText: {
     fontFamily: fonts.heading,
     fontSize: 18,
-    marginTop: 10
+    marginTop: 15
   },
   label: {  
     fontFamily: fonts.heading,
@@ -117,7 +128,7 @@ const styles = StyleSheet.create({
   },
   formGroup: {
     width: '80%',
-    marginTop: 13,
+    marginTop: 20,
     alignItems: 'flex-start'
   }
 });

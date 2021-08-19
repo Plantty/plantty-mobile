@@ -1,9 +1,13 @@
 import React from 'react';
 import { 
+  Platform,
+  KeyboardAvoidingView,
+  Keyboard,
   SafeAreaView, 
   StyleSheet,
   View,
-  Text
+  Text,
+  TouchableWithoutFeedback
 } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 
@@ -27,59 +31,66 @@ export function RegisterContinue() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.content}> 
-        <PlantSvg/>
-        
-        <Text style={styles.title}>Bem vindo ao Plantty!</Text>
-        
-        <Text style={styles.subtitle}>Viva ao planeta</Text>
+      <KeyboardAvoidingView
+        style={styles.container}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height' }
+      >
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.content}> 
+            <PlantSvg/>
+            
+            <Text style={styles.title}>Bem vindo ao Plantty!</Text>
+            
+            <Text style={styles.subtitle}>Viva ao planeta</Text>
 
-        <View style={styles.form}>
-          <View style={styles.formGroup}>
-            <Text style={styles.label}>E-mail</Text>
+            <View style={styles.form}>
+              <View style={styles.formGroup}>
+                <Text style={styles.label}>E-mail</Text>
 
-            <TextArea 
-              placeholder='Digite seu e-mail'
-              maxLength={60}
+                <TextArea 
+                  placeholder='Digite seu e-mail'
+                  maxLength={60}
+                />
+              </View>
+
+              <View style={styles.formGroup}>
+                <Text style={styles.label}>Senha</Text>
+
+                <TextArea 
+                  placeholder='Digite sua senha'
+                  maxLength={30}
+                  secureTextEntry
+                />
+              </View>
+
+              <View style={styles.formGroup}>
+                <Text style={styles.label}>Confirmar senha</Text>
+
+                <TextArea 
+                  placeholder='Digite sua senha'
+                  maxLength={30}
+                  secureTextEntry
+                />
+              </View>
+            </View>
+
+            <Button
+              title='Continuar'
+              onPress={handleRegister}
             />
+
+            <View style={styles.loginContainer}>
+              <Text style={styles.accountText}>Tem uma conta? </Text>
+              <Text 
+                style={styles.loginText}
+                onPress={handleLogin}
+              >
+                Login
+              </Text>
+            </View>
           </View>
-
-          <View style={styles.formGroup}>
-            <Text style={styles.label}>Senha</Text>
-
-            <TextArea 
-              placeholder='Digite sua senha'
-              maxLength={30}
-              secureTextEntry
-            />
-          </View>
-
-          <View style={styles.formGroup}>
-            <Text style={styles.label}>Confirmar senha</Text>
-
-            <TextArea 
-              placeholder='Digite sua senha'
-              maxLength={30}
-              secureTextEntry
-            />
-          </View>
-        </View>
-
-        <Button
-          title='Continuar'
-          onPress={handleRegister}
-        />
-
-        <View style={styles.loginContainer}>
-          <Text style={styles.accountText}>Tem uma conta? </Text>
-          <Text 
-            style={styles.loginText}
-            onPress={handleLogin}
-          >
-            Login
-          </Text>
-        </View>
-      </View>
+        </TouchableWithoutFeedback>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   )
 }
