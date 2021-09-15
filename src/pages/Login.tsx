@@ -25,6 +25,10 @@ export function Login() {
     navigation.navigate('RegisterContinue');        
   }
 
+  function handleHome() {
+    navigation.navigate('Home', { actualPage: 'home'});        
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <KeyboardAvoidingView
@@ -64,6 +68,7 @@ export function Login() {
 
             <Button
               title='Entrar'
+              onPress={handleHome}
             />
 
             <View style={styles.registerContainer}>
