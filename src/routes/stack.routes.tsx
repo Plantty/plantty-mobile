@@ -7,6 +7,9 @@ import { Continue } from '../pages/Continue';
 import { Login } from '../pages/Login';
 import { RegisterContinue } from '../pages/RegisterContinue';
 import { Register } from '../pages/Register';
+import { Home } from '../pages/Home';
+import { Search } from '../pages/Search';
+import { Comment } from '../pages/Comment';
 
 import colors from '../styles/colors';
 
@@ -50,6 +53,21 @@ const AppRoutes: React.FC = () => (
       <stackRoutes.Screen 
         name='Register'
         component={Register}
+      />
+
+      <stackRoutes.Screen 
+        name='Home'
+        component={Home}
+      />
+
+      <stackRoutes.Screen 
+        name='Search'
+        component={Search}
+      />
+
+      <stackRoutes.Screen 
+        name='Comment'
+        component={Comment}
       />
 
     </stackRoutes.Navigator>
