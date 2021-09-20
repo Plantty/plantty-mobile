@@ -22,6 +22,10 @@ export function Enter() {
     navigation.navigate('Login');        
   }
 
+  function handleRegister() {
+    navigation.navigate('RegisterContinue');        
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}> 
@@ -49,6 +53,7 @@ export function Enter() {
         <TouchableOpacity 
           style={styles.button}
           activeOpacity={0.8}  
+          onPress={handleRegister}
         >
           <Text style={styles.textButton}>
             Registrar
