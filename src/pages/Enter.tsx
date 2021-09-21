@@ -14,7 +14,6 @@ import { PaginationDots } from '../components/PaginationDots';
 import DoneSvg from '../assets/done.svg';
 import fonts from '../styles/fonts';
 import colors from '../styles/colors';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 export function Enter() {
   const navigation = useNavigation();
