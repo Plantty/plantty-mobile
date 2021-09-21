@@ -5,7 +5,6 @@ import {
   StyleSheet,
   TouchableOpacityProps
 } from 'react-native';
-import { Feather } from '@expo/vector-icons';
 
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
