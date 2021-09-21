@@ -11,12 +11,14 @@ import fonts from '../styles/fonts';
 
 interface ButtonProps extends TouchableOpacityProps {
   title: string;
+  backgroundColor: string;
+  width: number;
 }
 
-export function Button({ title, ...rest }: ButtonProps ){
+export function Button({ title, backgroundColor, width, ...rest }: ButtonProps ){
   return (
     <TouchableOpacity 
-      style={styles.container}
+      style={{...styles.container, backgroundColor: backgroundColor, width: width }}
       activeOpacity={0.8}  
       {...rest}
     >
@@ -29,8 +31,6 @@ export function Button({ title, ...rest }: ButtonProps ){
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.purple,
-    width: 270,
     height: 58,
     borderRadius: 16,
     flexDirection: 'row',

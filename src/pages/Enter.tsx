@@ -14,6 +14,7 @@ import { PaginationDots } from '../components/PaginationDots';
 import DoneSvg from '../assets/done.svg';
 import fonts from '../styles/fonts';
 import colors from '../styles/colors';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 export function Enter() {
   const navigation = useNavigation();
@@ -47,6 +48,8 @@ export function Enter() {
 
         <Button 
           title='Entrar'
+          backgroundColor='#4C35E4'
+          width={270}
           onPress={handleStart}
         />
 
