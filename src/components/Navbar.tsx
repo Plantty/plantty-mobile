@@ -1,15 +1,16 @@
 import React from 'react';
 import { 
   View,
-  StyleSheet
+  StyleSheet,
+  TouchableOpacity
 } from 'react-native';
-import { useRoute } from '@react-navigation/core';
+import { useRoute, useNavigation } from '@react-navigation/core';
 
 import colors from '../styles/colors';
 
 import HomeSvg from '../assets/home.svg';
 import SearchSvg from '../assets/search.svg';
-import NotificationSvg from '../assets/notification.svg';
+import CommentSvg from '../assets/comment.svg';
 
 interface routeParamsProps {
   actualPage: string;
@@ -17,28 +18,51 @@ interface routeParamsProps {
 
 export function Navbar() {
   const route = useRoute();
+  const navigation = useNavigation();
 
   const { actualPage } = route.params as routeParamsProps;
 
+  function handleHome() {
+    navigation.navigate('Home', { actualPage: 'home'});        
+  }
+
+  function handleSearch() {
+    navigation.navigate('Search', { actualPage: 'search'});        
+  }
+
+  function handleComment() {
+    navigation.navigate('Comment', { actualPage: 'comment'});        
+  }
+
   return (
     <View style={styles.container}>
-      <View style={actualPage == 'home' ? styles.activeButtonContainer : styles.buttonContainer}>
-        <HomeSvg fill={actualPage == 'home' ? '#FFF' : '#B2B2B2'}/>
-      </View>
+      <TouchableOpacity onPress={handleHome}>
+        <View style={actualPage === 'home' ? styles.activeButtonContainer : styles.buttonContainer}>
+          <HomeSvg fill={actualPage === 'home' ? '#FFF' : '#B2B2B2'}/>
+        </View>
+      </TouchableOpacity>
 
-      <View style={actualPage == 'search' ? styles.activeButtonContainer : styles.buttonContainer}>
-        <SearchSvg fill={actualPage == 'search' ? '#FFF' : '#B2B2B2'}/>
-      </View>
+      <TouchableOpacity onPress={handleSearch}>
+        <View style={actualPage === 'search' ? styles.activeButtonContainer : styles.buttonContainer}>
+          <SearchSvg fill={actualPage === 'search' ? '#FFF' : '#B2B2B2'}/>
+        </View>
+      </TouchableOpacity>
 
-      <View style={actualPage == 'comment' ? styles.activeButtonContainer : styles.buttonContainer}>
-        <NotificationSvg fill={actualPage == 'comment' ? '#FFF' : '#B2B2B2'}/>
-      </View>
+      <TouchableOpacity onPress={handleComment}>
+        <View style={actualPage === 'comment' ? styles.activeButtonContainer : styles.buttonContainer}>
+          <CommentSvg fill={actualPage === 'comment' ? '#FFF' : '#B2B2B2'}/>
+        </View>
+      </TouchableOpacity>
     </View>
   )
 }; 
 
 const styles = StyleSheet.create({
   container: {
+    zIndex: 1,
+    position: 'absolute',
+    top: '85%',
+    marginLeft: '5%',
     width: '90%',
     height: 60,
     borderRadius: 20,

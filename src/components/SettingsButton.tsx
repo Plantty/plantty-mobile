@@ -1,18 +1,33 @@
 import React from 'react';
 import { 
   View,
-  StyleSheet
+  StyleSheet,
+  TouchableOpacity
 } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
 
 import colors from '../styles/colors';
 
 import SettingsSvg from '../assets/settings.svg';
 
-export function SettingsButton() {
+
+interface SettingsButtonProps {
+  backPage: string;
+}
+
+export function SettingsButton({ backPage }: SettingsButtonProps) {
+  const navigation = useNavigation();
+
+  function handleSettings() {
+    navigation.navigate('Settings', {backPage: backPage});        
+  }
+
   return (
-    <View style={styles.container}>
-      <SettingsSvg/>
-    </View>
+    <TouchableOpacity onPress={handleSettings}>
+      <View style={styles.container}>
+        <SettingsSvg/>
+      </View>
+    </TouchableOpacity>
   )
 }; 
 

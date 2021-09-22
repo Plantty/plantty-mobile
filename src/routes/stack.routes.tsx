@@ -10,6 +10,7 @@ import { Register } from '../pages/Register';
 import { Home } from '../pages/Home';
 import { Search } from '../pages/Search';
 import { Comment } from '../pages/Comment';
+import { Settings } from '../pages/Settings';
 
 import colors from '../styles/colors';
 
@@ -68,6 +69,11 @@ const AppRoutes: React.FC = () => (
       <stackRoutes.Screen 
         name='Comment'
         component={Comment}
+      />
+
+      <stackRoutes.Screen 
+        name='Settings'
+        component={Settings}
       />
 
     </stackRoutes.Navigator>
