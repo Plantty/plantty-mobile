@@ -1,5 +1,7 @@
 import React from 'react';
+import { StatusBar, View, StyleSheet } from 'react-native';
 import AppLoading from 'expo-app-loading';
+import Constants from 'expo-constants';
 
 import Routes from './src/routes';
 
@@ -17,6 +19,18 @@ export default function App() {
     return <AppLoading />
   
   return (
-    <Routes />
-  );
+    <>
+      <View style={styles.StatusBar}>
+          <StatusBar translucent barStyle="light-content" />
+      </View>
+      <Routes />
+    </>
+  )
 }
+
+const styles = StyleSheet.create({
+  StatusBar: {
+    height: Constants.statusBarHeight,
+    backgroundColor: 'black'
+  }
+});
