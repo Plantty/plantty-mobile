@@ -11,6 +11,7 @@ import { Home } from '../pages/Home';
 import { Search } from '../pages/Search';
 import { Comment } from '../pages/Comment';
 import { Settings } from '../pages/Settings';
+import { Plant } from '../pages/Plant';
 
 import colors from '../styles/colors';
 
@@ -76,8 +77,12 @@ const AppRoutes: React.FC = () => (
         component={Settings}
       />
 
+      <stackRoutes.Screen 
+        name='Plant'
+        component={Plant}
+      />
+
     </stackRoutes.Navigator>
 )
-
 
 export default AppRoutes;

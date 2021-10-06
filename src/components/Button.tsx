@@ -12,7 +12,7 @@ import fonts from '../styles/fonts';
 interface ButtonProps extends TouchableOpacityProps {
   title: string;
   backgroundColor: string;
-  width: number;
+  width: number | string;
 }
 
 export function Button({ title, backgroundColor, width, ...rest }: ButtonProps ){

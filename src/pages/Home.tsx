@@ -17,6 +17,8 @@ import userImage from '../assets/user.png';
 import colors from '../styles/colors';
 
 export function Home() {
+  const backPage='Home';
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
@@ -28,7 +30,7 @@ export function Home() {
               </View>
               <Text style={styles.userText}>Olá, {'\n'}Daniel!</Text>
             </View>
-            <SettingsButton backPage='Home'/>
+            <SettingsButton backPage={backPage}/>
           </View>
 
           
@@ -36,9 +38,9 @@ export function Home() {
             <Text style={styles.title}>Recomendado</Text>
             <ScrollView horizontal={true}>
               <View style={styles.sectionPlants}>
-                <PlantCard/>
-                <PlantCard/>
-                <PlantCard/>
+                <PlantCard backPage={backPage}/>
+                <PlantCard backPage={backPage}/>
+                <PlantCard backPage={backPage}/>
               </View>
             </ScrollView>
           </View>
@@ -47,9 +49,9 @@ export function Home() {
             <Text style={styles.title}>Explore</Text>
             <ScrollView horizontal={true}>
               <View style={styles.sectionPlants}>
-                <PlantCard/>
-                <PlantCard/>
-                <PlantCard/>
+                <PlantCard backPage={backPage}/>
+                <PlantCard backPage={backPage}/>
+                <PlantCard backPage={backPage}/>
               </View>
             </ScrollView>
           </View>

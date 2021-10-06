@@ -1,8 +1,6 @@
 import React from 'react';
 import { 
-  Image,
   SafeAreaView, 
-  ScrollView,
   StyleSheet,
   View,
   Text
@@ -27,8 +25,8 @@ export function Search() {
         <View style={styles.mostSearched}>
           <Text style={styles.title}>Mais procurados</Text>
 
-          <PlantCardHorizontal />
-          <PlantCardHorizontal />
+          <PlantCardHorizontal backPage='Search'/>
+          <PlantCardHorizontal backPage='Search'/>
         </View>
 
         <Navbar />

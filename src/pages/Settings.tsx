@@ -4,8 +4,7 @@ import {
   SafeAreaView, 
   StyleSheet,
   View,
-  Text,
-  TouchableOpacity
+  Text
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { useRoute, useNavigation } from '@react-navigation/core';

@@ -3,26 +3,40 @@ import {
   Image,
   Text,
   StyleSheet,
-  View
+  View,
+  TouchableOpacity
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useNavigation } from '@react-navigation/core';
 
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
 import plantImage from '../assets/plantHorizontal.png';
 
-export function PlantCardHorizontal() {
+interface PlantCardProps {
+  backPage: string;
+}
+
+export function PlantCardHorizontal({ backPage }: PlantCardProps) {
+  const navigation = useNavigation();
+
+  function handlePlantDetails() {
+    navigation.navigate('Plant', {backPage: backPage});        
+  }
+
   return (
-    <View style={styles.container}>
-      <Image source={plantImage} style={styles.plantImage}/>
-        <LinearGradient
-          colors={['rgba(0,0,0,0.8)', 'transparent']}
-          style={styles.informationContainer}
-        >
-          <Text style={styles.plantTitle}>Bromélia</Text>
-          <Text style={styles.plantSubtitle}>Bromeliaceae</Text>
-        </LinearGradient>
-    </View>
+    <TouchableOpacity onPress={handlePlantDetails}>
+      <View style={styles.container}>
+        <Image source={plantImage} style={styles.plantImage}/>
+          <LinearGradient
+            colors={['rgba(0,0,0,0.8)', 'transparent']}
+            style={styles.informationContainer}
+          >
+            <Text style={styles.plantTitle}>Bromélia</Text>
+            <Text style={styles.plantSubtitle}>Bromeliaceae</Text>
+          </LinearGradient>
+      </View>
+    </TouchableOpacity>
   )
 }; 
 
